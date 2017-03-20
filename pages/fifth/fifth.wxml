@@ -1,0 +1,31 @@
+<!--index.wxml-->
+<view class="container">
+<!--
+  <view  bindtap="bindViewTap" class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </view>-->
+  <view bindtap="bindViewTap">五套整件查询</view>
+  <view>-----------------</view>
+  <view>年份：{{year_opts[0][year]}}年 币种：{{currency_opts[0][currency]}}卷</view>
+  <view wx:if="{{head_code[head]}}"> 冠字：{{head_code[head]}} {{serial}}</view>
+  <view wx:else> 冠字：无 {{serial}} </view>
+  <picker-view  indicator-style="height: 50px;" style="width: 100%; height: 150px;" value="{{value}}" bindchange="bindDateChange">
+   <picker-view-column>
+      <view wx:for="{{year_opts[1]}}" style="line-height: 50px">{{item}}</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{currency_opts[1]}}" style="line-height: 50px">{{item}}</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{code_opts[1]}}" style="line-height: 50px">{{item}}</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{code_opts[1]}}" style="line-height: 50px">{{item}}</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{code_opts[1]}}" style="line-height: 50px">{{item}}</view>
+    </picker-view-column>
+  </picker-view>
+  <input  bindinput="bindKeyInput" placeholder="输入流水号"/>
+</view>
