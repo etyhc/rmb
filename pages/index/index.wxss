@@ -19,3 +19,80 @@
 .usermotto {
   margin-top: 200px;
 }
+
+.index_top{
+    float:left;
+    height:120px;
+    width: 90%;
+    color:#fff;
+    line-height: 40px;
+    text-align: center;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background: #0181FF;
+    background: linear-gradient(#5397ee, #48a9e4);
+    box-shadow:-2px 0 2px #5397ee, /*左边阴影*/  
+    -2px 0 2px #5397ee, /*右边阴影*/  
+    2px 2px #5397ee, /*顶部阴影*/  
+    0 2px 2px #5397ee; /*底边阴影*/ 
+}
+.index_top .index_top_one{
+   font-weight:bold;
+   font-size: 22px;
+}
+
+.index_mid{
+  width: 90%; 
+  height: 150px;
+  /*border: 2px solid black; */
+  box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+  -moz-box-sizing: border-box;
+  box-shadow:-2px 0 2px #f0f0f0, /*左边阴影*/  
+    -2px 0 2px #f0f0f0, /*右边阴影*/  
+    2px 2px #f0f0f0, /*顶部阴影*/  
+    0 2px 2px #f0f0f0; /*底边阴影*/ 
+}
+
+.picker_mid{ 
+    border-top: 0.5px solid #0181ff;
+    border-bottom: 0.5px solid #0181ff;
+    box-sizing: border-box; 
+    -webkit-box-sizing: border-box; 
+    -moz-box-sizing: border-box;
+    width: 80%; 
+    height:40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 16px; 
+}
+
+
+.index_bottom{
+  width: 90%; 
+  height: 80px;
+  font-size: 16px;
+  /*border: 2px solid black; */
+  box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+  -moz-box-sizing: border-box;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  box-shadow:-2px 0 2px #f0f0f0, /*左边阴影*/  
+    -2px 0 2px #f0f0f0, /*右边阴影*/  
+    2px 2px #f0f0f0, /*顶部阴影*/  
+    0 5px 5px #f0f0f0; /*底边阴影*/ 
+}
+input{
+ border: 1px solid #dedede; 
+ height: 40px;
+ line-height: 40px;
+ width: 80%;
+ margin: auto;
+ margin-top: 20px;
+ padding-left:5px;
+ border-radius: 5px;
+ color:#aaa;
+ font-size: 16px; 
+ font-weight:bold;
+}

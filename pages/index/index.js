@@ -1,13 +1,20 @@
 //index.js
 //获取应用实例
 var app = getApp()
+
+function pad(num, n) {
+  var len = num.toString().length
+  while(len < n) {
+    num = "0" + num
+    len++
+  }
+  return num
+}
+
 Page({
   data: {
-    start_year:1987,
-    end_year:1997,
-    year_opts:[],
-    count:50000,
-    currency_opts:[["1角","2角","5角","1元","2元","5元"],["付","位","信","仁","伙","佳"]],
+    year_opts:[[1980,1990,1996],[80,90,96]],
+    currency_opts:[["1角","2角","5角","1元","2元","5元"],["付","位","信","仁","伙","佳"],[50000,50000,50000,40000,40000,25000]],
     code_opts: [[1,2,3,4,5,6,7,8,9,0],["扎","打","扛","抖","拉","持","捎","接","揖","搞"]],
   head_code:[
     //第一大组（1组）
@@ -82,19 +89,22 @@ Page({
     "OK","OL","OM","ON","OO",                     //O组
     "LK","LL","LM","LN","LO",                     //L组
     "NK","NL","NM","NN","NO"],                    //N组
-    value: [0,2,2,2,2],
-    year:0,
+    value: [1,2,2,2,2],
+    year:1,
     currency:2,
     head:332,
+    input:'N',
     serial:"00000NaN~00000NaN"
   },
 
   bindDateChange: function(e) {
       const val = e.detail.value
+      var s = parseInt(this.data.input) * this.data.currency_opts[2][val[1]]
       this.setData({
       year: val[0],
       currency: val[1],
-      head: this.data.code_opts[0][val[2]]*100 + this.data.code_opts[0][val[3]]*10 + this.data.code_opts[0][val[4]] - 1
+      head: this.data.code_opts[0][val[2]]*100 + this.data.code_opts[0][val[3]]*10 + this.data.code_opts[0][val[4]] - 1,
+      serial:pad(s  - this.data.currency_opts[2][val[1]] + 1,8)+ "~" + pad(s ,8)
     })
   },
 
@@ -104,37 +114,16 @@ Page({
       url: '../fifth/fifth'
     })
   },
-  
-  bindKeyInput: function(e) {
-    var s=parseInt(e.detail.value) * this.data.count
-    this.setData({
-      serial:pad(s - this.data.count + 1,8)+ "~" + pad(s,8)
-    })
 
-    function pad(num, n) {
-      var len = num.toString().length
-      while(len < n) {
-        num = "0" + num
-        len++
-      }
-      return num
-    } 
+  bindKeyInput: function(e) {
+    var s=parseInt(e.detail.value) * this.data.currency_opts[2][this.data.currency]
+    this.setData({
+      input:e.detail.value,
+      serial:pad(s  - this.data.currency_opts[2][this.data.currency] + 1,8)+ "~" + pad(s ,8)
+    })
   },
 
   onLoad: function () {
-    var t = []
-    var c =[]
-    var b=[]
-    for (let i = this.data.start_year ; i <= this.data.end_year; i++) {
-      c.push(i)
-      b.push(i%100)
-    }
-    t.push(c,b)
-
-    this.setData({
-      year_opts:t
-    })
-
     console.log('onLoad')
     var that = this
     //调用应用实例的方法获取全局数据

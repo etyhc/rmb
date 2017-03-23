@@ -6,7 +6,8 @@
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "整件查询",
     "navigationBarTextStyle":"black"
   }
+  
 }
