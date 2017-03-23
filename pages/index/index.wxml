@@ -32,5 +32,10 @@
   <view  class="index_bottom">
     <input bindinput="bindKeyInput" type="number" placeholder="输入流水号"/>
   </view>
-  
+  <view class="light_show" wx:for="{{light}}">{{item}}
+  </view>
+  <view>
+    <input bindinput="bindKeylightCodeInput" type="number" placeholder="输入代码"/>
+    <input bindinput="bindKeylightHeadInput" placeholder="输入冠号"/>
+  </view>
 </view>

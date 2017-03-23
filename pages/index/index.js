@@ -10,12 +10,27 @@ function pad(num, n) {
   }
   return num
 }
-
+function getLight(that,code,head) {
+  var endout=[]
+  for(var o in that.data.light_opts[code]) {
+      for (var hh in that.data.light_opts[code][o][0])
+          if(that.data.light_opts[code][o][0][hh] == head)
+              endout.push(that.data.light_opts[code][o][1])
+  }
+  if(endout.length == 0)
+    endout.push('普通')
+  return endout;
+}
 Page({
   data: {
     year_opts:[[1980,1990,1996],[80,90,96]],
-    currency_opts:[["1角","2角","5角","1元","2元","5元"],["付","位","信","仁","伙","佳"],[50000,50000,50000,40000,40000,25000]],
-    code_opts: [[1,2,3,4,5,6,7,8,9,0],["扎","打","扛","抖","拉","持","捎","接","揖","搞"]],
+    currency_opts:[
+      ["1角","2角","5角","1元","2元","5元"],
+      ["付","位","信","仁","伙","佳"],
+      [50000,50000,50000,40000,40000,25000]],
+    code_opts: [
+      [1,2,3,4,5,6,7,8,9,0],
+      ["扎","打","扛","抖","拉","持","捎","接","揖","搞"]],
   head_code:[
     //第一大组（1组）
     "CP","CQ","CR","CS","CT","CU","CW","CX","CY","CZ",      //C组
@@ -89,12 +104,136 @@ Page({
     "OK","OL","OM","ON","OO",                     //O组
     "LK","LL","LM","LN","LO",                     //L组
     "NK","NL","NM","NN","NO"],                    //N组
+    'light_opts': {
+    '902': [
+        [['DT', 'FW', 'FY', 'HP', 'HR', 'PA', 'PC', 'PD'], '绿幽灵'],
+        [['JX', 'ZJ'], '珍稀绿幽灵'],
+        [['JU', 'JW', 'JX', 'ZH', 'ZI', 'ZJ'], '补号']],
+    '802': [
+        [[
+          'CP32', 'CS33', 'CT61', 'CU32', 'CX37', 'GR77', 'GU86', 'GW44', 'IS83', 'IW65',
+          'AX31', 'AY59]'], '绿钻'],
+        [['JZ'], '补号']],
+    '805': [
+        [[
+            'CZ', 'EP', 'ER', 'ES', 'EU', 'EW', 'EZ', 'GP', 'GQ', 'GR',
+            'GY', 'GZ', 'AT', 'AU', 'AX', 'AY', 'IR', 'IS', 'IT', 'IW',
+            'IX', 'IY', 'IZ', 'BP', 'BQ', 'BR', 'BS', 'BT', 'BU', 'BW',
+            'BX', 'BY', 'BZ', 'DP', 'DQ', 'DR', 'DS', 'DT', 'DU', 'DZ',
+            'FP', 'FQ', 'FX', 'FY'],'苍松翠鹤'],
+        [['JX', 'JZ', 'JN', 'JO', 'ZI', 'ZJ', 'ZM', 'ZN', 'ZO'], '补号']],
+    '8001': [
+        [['WG98', 'WC53', 'WH22', 'WA21', 'WA70', 'WB69'], '青天白日'],
+        [['WE000693'], '双面银白强光'],
+        [['WN', 'WO', 'YK', 'YL', 'YM', 'YN', 'QL'], '强荧光黄金甲'],
+        [[
+          'CW', 'CY', 'ET', 'ER', 'EW', 'EU', 'EX', 'GR', 'GS', 'GW',
+          'GU', 'AY', 'AS', 'BT', 'BZ'], '两边双面背红荧光'],
+        [['CL31', 'AL67'], '中间荧光'],
+        [['CL147', 'CK001', 'CL647', 'CK070', 'BK15', 'BK27', 'BK55'], '中间荧光头有'],//文档看不懂
+        [[
+            'ZH', 'WG', 'RA', 'RH', 'RM', 'RK', 'RG', 'YA', 'YG', 'XC',
+            'XF', 'SE', 'SB', 'TF', 'TH', 'TB', 'QK', 'PO', 'DU', 'YI'], '中强黄金甲'],
+        [[
+            'WG', 'XB', 'XC', 'XE', 'XF', 'XG', 'XH', 'YI', 'YJ', 'RL',
+            'RM', 'DT', 'DU', 'DW', 'DX', 'FS', 'FT', 'FU', 'FW', 'FY',
+            'FZ', 'HP', 'HQ', 'HR', 'HS', 'HT', 'JP', 'JQ', 'JR', 'JW',
+            'PA', 'PB', 'PC', 'PD', 'PE', 'PF', 'PG', 'PH', 'PI', 'PJ',
+            'QA', 'QB', 'QC', 'QF', 'QH', 'QJ', 'RA', 'RB', 'RC', 'RD',
+            'RE', 'RF', 'RG', 'RH', 'RJ', 'SA', 'SB', 'SC', 'SD', 'SE',
+            'SF', 'SG', 'SI', 'TA', 'TB', 'TD', 'TF', 'TG', 'TH', 'TI',
+            'TJ', 'UA', 'UB', 'UC', 'UD', 'UE', 'UG', 'UF', 'UH', 'UI',
+            'UJ', 'WE', 'WF', 'WJ', 'XA', 'XD', 'XI', 'XJ', 'YA', 'YB',
+            'YC', 'YE', 'YF', 'YG', 'YH', 'ZA', 'ZB', 'ZC', 'ZE', 'ZF',
+            'ZG', 'ZH', 'PK', 'PL', 'PN', 'PM', 'PO', 'QK', 'RK', 'RI',
+            'BK', 'SH', 'XN', 'YO', 'ZO'], '弱荧光'],
+        [[
+            'JT', 'JU', 'JW', 'JX', 'JZ', 'ZH', 'ZI', 'ZJ', 'JN', 'JO',
+            'ZM', 'ZN', 'ZO', 'NJ', 'NY', 'NZ', 'JG', 'JH', 'JI', 'JJ',
+            'JA', 'JB', 'JC', 'ZT', 'ZU', 'ZW', 'ZX', 'ZY', 'ZZ', 'NN'], '补号']],
+    '8002': [
+        [['CT', 'CY', 'CZ', 'ES', 'GX', 'PA', 'PB', 'PC', 'PD'], '青绿美翠'],//文档看不懂
+        [['DQ', 'HP'], '部分青绿美翠'],
+        [[
+            'XW', 'CX', 'CY', 'DP', 'DQ', 'DR', 'DS', 'DT', 'DU', 'DW',
+            'ET', 'EU', 'EW', 'EX', 'EY', 'GP', 'GQ', 'GR', 'GS', 'GT',
+            'GU', 'GW', 'GX', 'GY', 'GZ', 'IQ', 'IR', 'IS', 'IT', 'IU',
+            'IW', 'AS', 'BU', 'JZ', 'ZI'], '一星稀有冠号'],
+        [['CQ', 'CR', 'CS', 'CT', 'CU', 'CZ', 'ER', 'E', 'ZJ', 'ZO'], '二星稀有冠号'],
+        [['CP', 'EP', 'EQ', 'ZN'],'三星稀有冠号']
+            [['JX'], '四星稀有冠号']],
+    '8010': [
+        [['NY', 'NI', 'ZI', 'ZH', 'ZO', 'QC'],'火凤凰']],
+    '801': [
+        [['TG', 'TH', 'UF', 'UG', 'UH', 'UI', 'UJ', 'WD', 'WE', 'WF', 'WG', 'ZH'], '红金龙'],
+        [['ZH', 'UI', 'UJ'], '珍稀红金龙'],
+        [['RJ', 'TA', 'TB', 'TC', 'TD', 'TE', 'TF'], '部分红金龙'],
+        [[
+            'AZ', 'BP', 'BQ', 'BR', 'BS', 'BT', 'BU', 'BW', 'BX', 'BY',
+            'GS', 'GT', 'GU', 'GW', 'GX', 'JQ', 'JR', 'JS', 'JT', 'JW',
+            'PA', 'PB', 'PC', 'PD', 'PE', 'RJ', 'TA'], '金龙王'],
+        [['HU'], '五星稀有冠号'],
+        [['JU', 'AT', 'JT', 'JG'], '四星稀有冠号'],
+        [['NY', 'JI', 'NM'], '三星稀有冠号'],
+        [['FX', 'GP', 'IX', 'ZM', 'JB', 'JH', 'ZU'], '二星稀有冠号'],
+        [[
+            'BX', 'CP', 'CQ', 'CR', 'CU', 'CW', 'CX', 'CY', 'CZ', 'DT',
+            'ES', 'GT', 'IP', 'IQ', 'IR', 'IT', 'IU', 'JW', 'JX', 'JZ',
+            'ZH', 'ZI', 'ZJ', 'ZN', 'ZO', 'JN', 'JO', 'NZ', 'JA', 'JC',
+            'JJ', 'NJ', 'ZT', 'ZW', 'ZX', 'ZY', 'ZZ', 'NN', 'NO'], '一星稀有冠号']],
+    '8005': [
+        [[
+            'FY', 'FZ', 'HP', 'HQ', 'HR', 'HS', 'HT', 'HU', 'PF', 'PG',
+            'PH', 'PI', 'PJ', 'QF', 'QG', 'QH', 'QI', 'QJ', 'RA', 'RB',
+            'RC', 'RD', 'RE', 'RF', 'RG', 'RH', 'RI', 'RJ', 'SA', 'SB',
+            'SC', 'SD', 'SE', 'SF', 'SG', 'SH', 'SI', 'SJ', 'UA', 'UB',
+            'WC', 'WD', 'XF', 'XG', 'XH', 'XI', 'XJ', 'YA', 'YB', 'YC',
+            'YD', 'YE', 'YF', 'YG', 'YH', 'ZA', 'ZB', 'ZC', 'ZD', 'ZE',
+            'ZF', 'ZG', 'ZH', 'QK', 'QL', 'QM', 'QN', 'QO', 'RK', 'RL',
+            'RM', 'RN', 'RO', 'SK', 'SL', 'SM', 'SN', 'SO', 'TK', 'TL',
+            'UK', 'UL', 'UM', 'UN', 'UO', 'XK', 'XL', 'XM', 'XN', 'XO',
+            'YK', 'YL', 'YM', 'YN', 'YO', 'ZK', 'ZL', 'ZM', 'GB', 'GC',
+            'GD', 'GE', 'GF', 'GG', 'GH', 'GI', 'GJ'], '中国红'],
+        [['JU', 'JH', 'ZI','ZN'], '珍稀中国红'],
+        [['SJ76', 'YG15', 'QF20', 'QI52', 'YB92', 'XI091', 'XI130'], '满版荧光'],//文档看不懂
+        [['AL08'],'两边荧光'],//无文档
+        [['WK', 'WE'], '正面太阳红荧光'],
+        [['GU', 'JX'], '五星稀有冠号'],
+        [['JZ', 'ZO'], '四星稀有冠号'],
+        [['CP', 'IS', 'IU', 'JI'], '三星稀有冠号'],
+        [[
+            'ER', 'ES', 'EU', 'EY', 'GQ', 'GR', 'GS', 'GT', 'GX', 'IP',
+            'JU', 'JW', 'ZN', 'JH', 'JJ', 'ZX', 'ZZ', 'JO'], '二星稀有冠号'],
+        [[
+            'AS', 'AU', 'AW', 'BY', 'CR', 'CS', 'CT', 'CW', 'CX', 'CY',
+            'EQ', 'EW', 'EX', 'EZ', 'GP', 'GY', 'IR', 'IT', 'IW', 'IY',
+            'ZI', 'ZJ', 'ZW', 'ZY', 'NO'],'一星稀有冠号']],
+    '901': [
+        [[
+          'AK', 'AM', 'AO', 'AN', 'CK', 'CL', 'CM', 'XB', 'XH', 'XE',
+          'XJ', 'XG', 'XA', 'XF', 'ZB'], '强荧光版'],
+        [['ZB', 'ZC', 'ZD', 'ZE', 'ZL', 'ZM', 'ZN', 'ZO', 'JK', 'JL', 'JM', 'JO'], '补号']],
+    '961': [
+        [[
+          'XA', 'XB', 'XE', 'XF', 'XG', 'XH', 'XI', 'XJ', 'ZB',
+          'AK', 'AL', 'AM', 'AN', 'AO', 'CK', 'CL', 'CM', 'CN',
+          'CO', 'JM'], '燕子桃花红'],
+        [[
+          'JR', 'JT', 'JU', 'JW', 'JX', 'JY', 'JZ', 'JO', 'ZM',
+          'ZN', 'ZO', 'ZE', 'ZF', 'ZG', 'ZH', 'ZJ', 'NX', 'NY',
+          'NZ'], '补号']]
+
+},
+
     value: [1,2,2,2,2],
     year:1,
     currency:2,
     head:332,
     input:'N',
-    serial:"00000NaN~00000NaN"
+    serial:"00000NaN~00000NaN",
+    light_code:'',
+    light_head:'',
+    light:['普通']
   },
 
   bindDateChange: function(e) {
@@ -120,6 +259,20 @@ Page({
     this.setData({
       input:e.detail.value,
       serial:pad(s  - this.data.currency_opts[2][this.data.currency] + 1,8)+ "~" + pad(s ,8)
+    })
+  },
+
+  bindKeylightCodeInput: function(e) {
+    this.setData({
+      light_code:e.detail.value,
+      light:getLight(this,e.detail.value , this.data.light_head)
+    })
+  },
+
+  bindKeylightHeadInput: function(e) {
+    this.setData({
+      light_head:e.detail.value.toUpperCase(),
+      light:getLight(this,this.data.light_code , e.detail.value.toUpperCase())
     })
   },
 
