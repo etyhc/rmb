@@ -34,6 +34,7 @@
   </view>
   <view class="index_two">
       <view class="light_shows">
+        <view class="index_top_one">荧光查询结果</view>
         <view class="light_show" wx:for="{{light}}">
           {{item}}
         </view>
