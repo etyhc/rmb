@@ -22,10 +22,10 @@
 
 .index_top{
     float:left;
-    height:120px;
+    height:180rpx;
     width: 90%;
     color:#fff;
-    line-height: 40px;
+    line-height: 60rpx;
     text-align: center;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
@@ -43,7 +43,7 @@
 
 .index_mid{
   width: 90%; 
-  height: 150px;
+  height: 300rpx;
   /*border: 2px solid black; */
   box-sizing: border-box; 
   -webkit-box-sizing: border-box; 
@@ -61,8 +61,8 @@
     -webkit-box-sizing: border-box; 
     -moz-box-sizing: border-box;
     width: 80%; 
-    height:40px;
-    line-height: 40px;
+    height:80rpx;
+    line-height: 80rpx;
     text-align: center;
     font-size: 16px; 
 }
@@ -70,7 +70,7 @@
 
 .index_bottom{
   width: 90%; 
-  height: 80px;
+  height: 130rpx;
   font-size: 16px;
   /*border: 2px solid black; */
   box-sizing: border-box; 
@@ -83,13 +83,13 @@
     2px 2px #f0f0f0, /*顶部阴影*/  
     0 5px 5px #f0f0f0; /*底边阴影*/ 
 }
-input{
+.index_bottom input{
  border: 1px solid #dedede; 
- height: 40px;
- line-height: 40px;
+ height: 80rpx;
+ line-height: 80rpx;
  width: 80%;
  margin: auto;
- margin-top: 20px;
+ margin-top: 20rpx;
  padding-left:5px;
  border-radius: 5px;
  color:#aaa;

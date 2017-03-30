@@ -22,10 +22,10 @@
 
 .index_top{
     float:left;
-    height:120px;
+    height:180rpx;
     width: 90%;
     color:#fff;
-    line-height: 40px;
+    line-height: 60rpx;
     text-align: center;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
@@ -43,7 +43,7 @@
 
 .index_mid{
   width: 90%; 
-  height: 150px;
+  height: 300rpx;
   /*border: 2px solid black; */
   box-sizing: border-box; 
   -webkit-box-sizing: border-box; 
@@ -61,8 +61,8 @@
     -webkit-box-sizing: border-box; 
     -moz-box-sizing: border-box;
     width: 80%; 
-    height:40px;
-    line-height: 40px;
+    height:80rpx;
+    line-height: 80rpx;
     text-align: center;
     font-size: 16px; 
 }
@@ -70,7 +70,7 @@
 
 .index_bottom{
   width: 90%; 
-  height: 80px;
+  height: 130rpx;
   font-size: 16px;
   /*border: 2px solid black; */
   box-sizing: border-box; 
@@ -85,11 +85,11 @@
 }
 .index_bottom input{
  border: 1px solid #dedede; 
- height: 40px;
- line-height: 40px;
+ height: 80rpx;
+ line-height: 80rpx;
  width: 80%;
  margin: auto;
- margin-top: 20px;
+ margin-top: 20rpx;
  padding-left:5px;
  border-radius: 5px;
  color:#aaa;
@@ -99,28 +99,26 @@
 
 .index_two{
    width:90%;
-   margin-top:20px; 
+   margin-top:20rpx; 
+}
+.index_two .index_top_one{
+text-align: center;
 }
 .index_two .light_shows{
     float:left;
-    min-height: 120px;
+    min-height: 280rpx;
     width: 100%;
     color:#fff;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    line-height: 40px;
+    line-height: 70rpx;
     background: linear-gradient(#5397ee, #48a9e4);
     box-shadow: 
     -2px 0 2px #f0f0f0, /*右边阴影*/  
     2px 2px #f0f0f0, /*顶部阴影*/  
     
-}
-.index_two .index_top_one{
-   font-weight:bold;
-   font-size: 22px;
-   text-align: center;
 }
 .light_show{
     float: left;
@@ -130,16 +128,17 @@
 
 
 .index_two .index_two_input {
-    position:absolute;
-    bottom:20px;
+    margin-top:30rpx;
     float: left;
-    width: 90%; 
-    height: 100px;
+    width: 100%; 
+    height: 180rpx;
     font-size: 16px;
     /*border: 2px solid black; */
     box-sizing: border-box; 
     -webkit-box-sizing: border-box; 
     -moz-box-sizing: border-box;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     box-shadow:-2px 0 2px #f0f0f0, /*左边阴影*/  
@@ -164,8 +163,8 @@
 
 .index_two_input input{
         border: 1px solid #dedede; 
-        height: 40px;
-        line-height: 40px;
+        height: 70rpx;
+        line-height: 70rpx;
         width: 100%;
         margin: auto;
         margin-top: 20px;
