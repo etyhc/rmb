@@ -102,11 +102,13 @@
    margin-top:20rpx; 
 }
 .index_two .index_top_one{
-text-align: center;
+    text-align: center;
+    font-size:22px;
+    font-weight:bold;     
 }
 .index_two .light_shows{
     float:left;
-    min-height: 250rpx;
+    min-height: 200rpx;
     width: 100%;
     color:#fff;
     border-top-left-radius: 10px;
