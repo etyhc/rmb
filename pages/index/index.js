@@ -2,6 +2,7 @@
 //获取应用实例
 var app = getApp()
 
+//数字前面补零
 function pad(num, n) {
   var len = num.toString().length
   while(len < n) {
@@ -10,13 +11,26 @@ function pad(num, n) {
   }
   return num
 }
+
+//查询荧光 code是代码,head是冠号,须大写
 function getLight(that,code,head) {
   var endout=[]
+
+  //早期冠号,第一大组第二大组都是早期冠号
+  for(var i=0 ;i<200;i++ ) {
+  if(that.data.head_code[i] == head) {
+          endout.push('早期冠号')
+          break
+      }
+  }
+  
+  //查冠号
   for(var o in that.data.light_opts[code]) {
       for (var hh in that.data.light_opts[code][o][0])
           if(that.data.light_opts[code][o][0][hh] == head)
               endout.push(that.data.light_opts[code][o][1])
   }
+
   if(endout.length == 0)
     endout.push('普通')
   return endout;
@@ -236,6 +250,7 @@ Page({
     light:['普通']
   },
 
+  //4套整件查询
   bindDateChange: function(e) {
       const val = e.detail.value
       var s = parseInt(this.data.input) * this.data.currency_opts[2][val[1]]
@@ -254,6 +269,7 @@ Page({
     })
   },
 
+  //4套整件查询流水号
   bindKeyInput: function(e) {
     var s=parseInt(e.detail.value) * this.data.currency_opts[2][this.data.currency]
     this.setData({
@@ -262,6 +278,7 @@ Page({
     })
   },
 
+  //荧光查询输入代码
   bindKeylightCodeInput: function(e) {
     this.setData({
       light_code:e.detail.value,
@@ -269,6 +286,7 @@ Page({
     })
   },
 
+  //荧光查询输入冠号
   bindKeylightHeadInput: function(e) {
     this.setData({
       light_head:e.detail.value.toUpperCase(),

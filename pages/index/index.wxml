@@ -8,8 +8,8 @@
       <view class="index_top" bindtap="bindViewTap" >
         <view class="index_top_one">四套查询结果</view>
         <view >年份：{{year_opts[0][year]}}年 币种：{{currency_opts[0][currency]}}券</view>
-        <view  wx:if="{{head_code[head]}}"> 冠字：{{head_code[head]}} {{serial}}</view>
-        <view  wx:else> 冠字：无 {{serial}} </view>
+        <view  wx:if="{{head_code[head]}}"> 冠号：{{head_code[head]}} {{serial}}</view>
+        <view  wx:else> 冠号：无 {{serial}} </view>
       </view>
 
  <picker-view class="index_mid" indicator-style="height: 40px;" value="{{value}}" bindchange="bindDateChange">
